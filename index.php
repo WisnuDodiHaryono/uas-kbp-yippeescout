@@ -114,8 +114,23 @@ class AtributPakaian {
 
 abstract class AsetDasar {
     protected $namaBarang, $merk, $hargaBaru;
+    
     public function __construct($n, $m, $hb) {
-        $this->namaBarang = $n; $this->merk = $m; $this->hargaBaru = $hb;
+        $this->namaBarang = $n;
+        $this->merk = $m;
+        $this->setHargaBaru($hb); 
+    }
+
+    public function setHargaBaru($hb) {
+        if ($hb > 0) {
+            $this->hargaBaru = $hb;
+        } else {
+            $this->hargaBaru = 0; 
+        }
+    }
+
+    public function getNamaBarang() {
+        return strtoupper($this->namaBarang); 
     }
 }
 
